@@ -24,7 +24,7 @@ class Farmpipisabot(loader.Module):
         while True:
             await client.send_message('@pipisabot', "/dick@pipisabot")
             await asyncio.sleep(1)
-Return true;
+Return true
     
     @loader.unrestricted
     @loader.ratelimit
@@ -45,3 +45,6 @@ Return true;
             task.cancel()
         self.tasks = []
         await message.edit("Автоматический фарминг остановлен.")
+async def watcher(self, message):
+        if not getattr(message, "out", False):
+            return
