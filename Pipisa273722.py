@@ -27,7 +27,7 @@ class Farmpipisaabot(loader.Module):
 
     @loader.unrestricted
     @loader.ratelimit
-    async def farmcmd(self, message):
+    async def FarmPipisacmd(self, message):
         """Запустить автоматический фарминг в боте"""
         if self.tasks:
             return await message.edit("Автоматический фарминг уже запущен.")
@@ -36,7 +36,7 @@ class Farmpipisaabot(loader.Module):
         self.tasks = [asyncio.create_task(self.b_run(client))] 
     @loader.unrestricted
     @loader.ratelimit
-    async def stopcmd(self, message):
+    async def StopPipisacmd(self, message):
         """Остановить автоматический фарминг в боте"""
         if not self.tasks:
             return await message.edit("Автоматический фарминг не запущен.")
