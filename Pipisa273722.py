@@ -12,7 +12,7 @@ from .. import loader, utils
 
 
 @loader.tds
-class FarmMonacoMod(loader.Module):
+class Farmpipisabot(loader.Module):
     """Модуль для автоматического фарминга в игровом боте @pipisabot"""
 
     strings = {"name": "Pipisaaa"}
@@ -23,8 +23,8 @@ class FarmMonacoMod(loader.Module):
     async def b_run(self, client):
         while True:
             await client.send_message('@pipisabot', "/dick@pipisabot")
-            await asyncio.sleep(10)
-
+            await asyncio.sleep(1)
+Return true;
     
     @loader.unrestricted
     @loader.ratelimit
