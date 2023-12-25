@@ -30,11 +30,7 @@ class FarmPipisaBot(loader.Module):
     async def farmcmd(self, message):
         """Запустить автоматический фарминг в боте"""
         if self.tasks:
-            return await message.edit("Автоматический фарминг уже запущен.")
-        await message.edit("Автоматический фарминг запущен.")
-        client = message.client
-        self.tasks = [asyncio.create_task(self.b_run(client)), asyncio.create_task(self.p_run(client)), asyncio.create_task(self.l_run(client)), asyncio.create_task(self.t_run(client)), asyncio.create_task(self.a_run(client))]
-
+            return true
     @loader.unrestricted
     @loader.ratelimit
     async def stopcmd(self, message):
