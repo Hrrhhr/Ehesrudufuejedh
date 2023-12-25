@@ -1,4 +1,4 @@
-# meta developer: @modwini
+# meta developer: @MVPMihail
 import random
 from datetime import timedelta
 import asyncio
@@ -22,29 +22,10 @@ class FarmMonacoMod(loader.Module):
 
     async def b_run(self, client):
         while True:
-            await client.send_message('@pipisabot', "Ежедневный бонус")
-            await asyncio.sleep(1200)
+            await client.send_message('@pipisabot', "/dick@pipisabot")
+            await asyncio.sleep(10)
 
-    async def p_run(self, client):
-        while True:
-            await client.send_message('@pipisabot', "Бизнес снять")
-            await asyncio.sleep(1920)
-
-    async def l_run(self, client):
-        while True:
-            await client.send_message('@pipisabot', "Город снять")
-            await asyncio.sleep(1220)
-
-    async def t_run(self, client):
-        while True:
-            await client.send_message('@pipisabot', "Работать")
-            await asyncio.sleep(1440)
-
-    async def a_run(self, client):
-        while True:
-            await client.send_message('@pipisabot', "Ферма снять")
-            await asyncio.sleep(1680)
-
+    
     @loader.unrestricted
     @loader.ratelimit
     async def farmcmd(self, message):
@@ -53,8 +34,7 @@ class FarmMonacoMod(loader.Module):
             return await message.edit("Автоматический фарминг уже запущен.")
         await message.edit("Автоматический фарминг запущен.")
         client = message.client
-        self.tasks = [asyncio.create_task(self.b_run(client)), asyncio.create_task(self.p_run(client)), asyncio.create_task(self.l_run(client)), asyncio.create_task(self.t_run(client)), asyncio.create_task(self.a_run(client))]
-
+        self.tasks = [asyncio.create_task(self.b_run(client))] 
     @loader.unrestricted
     @loader.ratelimit
     async def stopcmd(self, message):
