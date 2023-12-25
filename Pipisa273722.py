@@ -1,3 +1,4 @@
+# meta developer: @modwini
 import datetime
 from telethon import events, utils
 from telethon.tl import types
