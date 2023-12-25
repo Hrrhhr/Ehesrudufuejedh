@@ -24,8 +24,7 @@ class Farmpipisabot(loader.Module):
         while True:
             await client.send_message('@pipisabot', "/dick@pipisabot")
             await asyncio.sleep(1)
-return True;
-    
+
     @loader.unrestricted
     @loader.ratelimit
     async def farmcmd(self, message):
