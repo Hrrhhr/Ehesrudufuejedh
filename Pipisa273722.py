@@ -12,10 +12,10 @@ from .. import loader, utils
 
 
 @loader.tds
-class Farmpipisabot(loader.Module):
+class Farmpipisaabot(loader.Module):
     """Модуль для автоматического фарминга в игровом боте @pipisabot"""
 
-    strings = {"name": "Pipisaaa"}
+    strings = {"name": "Piska"}
 
     def __init__(self):
         self.tasks = []
