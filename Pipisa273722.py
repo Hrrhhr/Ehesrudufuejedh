@@ -22,8 +22,8 @@ class Farmpipisabot(loader.Module):
 
     async def b_run(self, client):
         while True:
-            await client.send_message('@pipisabot', "/dick@pipisabot")
-            await asyncio.sleep(1)
+            await client.send_message('@gfxprimechat', "/dick@pipisabot")
+            await asyncio.sleep(10)
 
     @loader.unrestricted
     @loader.ratelimit
