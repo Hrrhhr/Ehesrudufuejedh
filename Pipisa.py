@@ -13,7 +13,7 @@ from .. import loader, utils
 
 @loader.tds
 class Farmpipisaabot(loader.Module):
-    """Модуль для автоматического фарминга в игровом боте @pipisabot"""
+    """Модуль для @pipisabot"""
 
     strings = {"name": "Piska"}
 
@@ -28,20 +28,20 @@ class Farmpipisaabot(loader.Module):
     @loader.unrestricted
     @loader.ratelimit
     async def Pipisacmd(self, message):
-        """Запустить автоматический фарминг в боте"""
+        """Ещё маленькая пипися"""
         if self.tasks:
-            return await message.edit("Автоматический фарминг уже запущен.")
-        await message.edit("Автоматический фарминг запущен.")
+            return await message.edit("Ты уже растишь пиписю.")
+        await message.edit("Ты начал растить пиписю.")
         client = message.client
         self.tasks = [asyncio.create_task(self.b_run(client))] 
     @loader.unrestricted
     @loader.ratelimit
     async def offPipisacmd(self, message):
-        """Остановить автоматический фарминг в боте"""
+        """Уже большая пипися"""
         if not self.tasks:
-            return await message.edit("Автоматический фарминг не запущен.")
+            return await message.edit("Ты не растишь пиписю.")
         for task in self.tasks:
             task.cancel()
         self.tasks = []
-        await message.edit("Автоматический фарминг остановлен.")
+        await message.edit("Ты прекратил растить пиписю.")
 
