@@ -24,11 +24,10 @@ class Farmpipisaabot(loader.Module):
         while True:
             await client.send_message('@gfxprimechat', "/dick@pipisabot")
                    await asyncio.sleep(86401)
-
-    @loader.unrestricted
+@loader.unrestricted
     @loader.ratelimit
-    async def Pipisacmd(self, message):
-        """Ещё маленькая пипися"""
+    async def Dickcmd(self, message):
+        """Ещё маленькая пипися."""
         if self.tasks:
             return await message.edit("Ты уже растишь пиписю.")
         await message.edit("Ты начал растить пиписю.")
@@ -36,7 +35,7 @@ class Farmpipisaabot(loader.Module):
         self.tasks = [asyncio.create_task(self.b_run(client))] 
     @loader.unrestricted
     @loader.ratelimit
-    async def offPipisacmd(self, message):
+    async def BigDickcmd(self, message):
         """Уже большая пипися"""
         if not self.tasks:
             return await message.edit("Ты не растишь пиписю.")
