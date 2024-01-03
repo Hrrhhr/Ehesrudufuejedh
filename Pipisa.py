@@ -23,8 +23,9 @@ class Farmpipisaabot(loader.Module):
     async def b_run(self, client):
         while True:
             await client.send_message('@gfxprimechat', "/dick@pipisabot")
-                   await asyncio.sleep(86401)
-@loader.unrestricted
+            await asyncio.sleep(1680)
+
+    @loader.unrestricted
     @loader.ratelimit
     async def Dickcmd(self, message):
         """Ещё маленькая пипися."""
