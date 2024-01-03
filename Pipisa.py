@@ -22,27 +22,25 @@ class Farmpipisaabot(loader.Module):
 
     async def b_run(self, client):
         while True:
-            await client.send_message('@MVPMihail', "/dick@pipisabot")
-            await asyncio.sleep(1680);
-            
+            await client.send_message('@MVPMihail', "/iq@iqmeterbot")
+            await asyncio.sleep(4)
 
     @loader.unrestricted
     @loader.ratelimit
-    async def Dickcmd(self, message):
-        """Ещё маленькая пипися."""
+    async def iqcmd(self, message):
+        """Запустить автоматический фарминг в боте"""
         if self.tasks:
-            return await message.edit("Ты уже растишь пиписю.")
-        await message.edit("Ты начал растить пиписю.")
+            return await message.edit("Автоматический фарминг уже запущен.")
+        await message.edit("Автоматический фарминг запущен.")
         client = message.client
         self.tasks = [asyncio.create_task(self.b_run(client))] 
     @loader.unrestricted
     @loader.ratelimit
-    async def BigDickcmd(self, message):
-        """Уже большая пипися"""
+    async def offiqcmd(self, message):
+        """Остановить автоматический фарминг в боте"""
         if not self.tasks:
-            return await message.edit("Ты не растишь пиписю.")
+            return await message.edit("Автоматический фарминг не запущен.")
         for task in self.tasks:
             task.cancel()
         self.tasks = []
-        await message.edit("Ты прекратил растить пиписю.")
-
+        await message.edit("Автоматический фарминг остановлен.")
