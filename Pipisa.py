@@ -23,11 +23,8 @@ class Farmpipisaabot(loader.Module):
     async def b_run(self, client):
         while True:
             await client.send_message('@MVPMihail', "/dick@pipisabot")
-            await asyncio.sleep(1680)
-            loop = asyncio.get_event_loop()
-task = loop.create_task(test())
-loop.run_until_complete(asyncio.sleep(3))
-task.cancel()
+            await asyncio.sleep(1680);
+            
 
     @loader.unrestricted
     @loader.ratelimit
