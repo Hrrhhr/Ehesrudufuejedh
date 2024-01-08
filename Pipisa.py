@@ -1,46 +1,34 @@
-# meta developer: @MVPMihail
-import random
-from datetime import timedelta
-import asyncio
-import time
-from telethon import events
-
-from telethon import functions
-from telethon.tl.types import Message
 
 from .. import loader, utils
+from telethon import events, errors, functions, types
+
+def register(cb):
+	cb(ScrSpamMod())
 
 
-@loader.tds
-class Farmpipisaabot(loader.Module):
-    """Модуль для @pipisabot"""
+class ScrSpamMod(loader.Module):
+	"""Screenshot Spammer by @KeyZenD"""
 
-    strings = {"name": "Piska"}
+	strings = {'name': 'ScrSpam'}
 
-    def __init__(self):
-        self.tasks = []
+	def __init__(self):
+		self.name = self.strings['name']
+		self._me = None
+		self._ratelimit = []
 
-    async def b_run(self, client):
-        while True:
-            await client.send_message('@MVPMihail', "/iq@iqmeterbot")
-            await asyncio.sleep(4)
+	async def client_ready(self, client, db):
+		self._db = db
+		self._client = client
+		self.me = await client.get_me()
 
-    @loader.unrestricted
-    @loader.ratelimit
-    async def iqcmd(self, message):
-        """Запустить автоматический фарминг в боте"""
-        if self.tasks:
-            return await message.edit("Автоматический фарминг уже запущен.")
-        await message.edit("Автоматический фарминг запущен.")
-        client = message.client
-        self.tasks = [asyncio.create_task(self.b_run(client))] 
-    @loader.unrestricted
-    @loader.ratelimit
-    async def offiqcmd(self, message):
-        """Остановить автоматический фарминг в боте"""
-        if not self.tasks:
-            return await message.edit("Автоматический фарминг не запущен.")
-        for task in self.tasks:
-            task.cancel()
-        self.tasks = []
-        await message.edit("Автоматический фарминг остановлен.")
+	async def scrscmd(self, message):
+		""".scrs <amount>"""
+		a = 1
+		r = utils.get_args(message)
+		if r and r[0].isdigit():
+			a = int(r[0])
+		await message.edit("ㅤ")
+		for _ in range(a):
+			await message.client(functions.messages.SendSosiHuy(peer=message.to_id, reply_to_msg_id=message.id))
+		await message.delete()
+		
