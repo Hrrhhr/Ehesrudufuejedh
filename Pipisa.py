@@ -1,4 +1,5 @@
 
+
 from .. import loader, utils
 from telethon import events, errors, functions, types
 
@@ -27,8 +28,8 @@ class ScrSpamMod(loader.Module):
 		r = utils.get_args(message)
 		if r and r[0].isdigit():
 			a = int(r[0])
-		await message.edit("ㅤ")
+		await message.edit("Screenshoting...")
 		for _ in range(a):
-			await message.client(functions.messages.SendSosiHuy(peer=message.to_id, reply_to_msg_id=message.id))
+			await message.client(functions.messages.sendScreenshotNotification#a1405817(peer=message.to_id, reply_to_msg_id=message.id))
 		await message.delete()
 		
